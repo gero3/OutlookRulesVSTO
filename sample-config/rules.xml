@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Rules schemaVersion="1.0" configVersion="1">
+  <Rule id="11111111-1111-1111-1111-111111111111" name="Laboresultaten" enabled="true" priority="10" stopProcessingOnMatch="true" matchMode="AllConditions" duplicatePolicy="RenameCounter" auditLevel="Summary" saveMode="Attachments" createdAt="2026-07-08T10:00:00.0000000" updatedAt="2026-07-10T10:00:00.0000000" schemaVersion="1.0">
+    <Description>Bewaart uitsluitend PDF-laboresultaten onder het beslagnummer.</Description>
+    <WatchFolders><Folder id="Inbox" /></WatchFolders>
+    <Conditions>
+      <Condition id="22222222-2222-2222-2222-222222222222" target="Subject" operator="StartsWith" caseSensitive="false" normalizeWhitespace="true" enabled="true"><Value>Beproevingsrapport (volledig resultaat)</Value><Value2 /></Condition>
+      <Condition id="33333333-3333-3333-3333-333333333333" target="HasAttachments" operator="Equals" caseSensitive="false" normalizeWhitespace="true" enabled="true"><Value>true</Value><Value2 /></Condition>
+    </Conditions>
+    <Extractions>
+      <Extraction id="44444444-4444-4444-4444-444444444444" name="Beslagnummer" source="BodyText" method="LineStartsWith" captureGroup="1" required="true" sanitizeForPath="true" trimResult="true" transform="None" transformFormat=""><Pattern>Beslagnummer:</Pattern><Pattern2 /><DefaultValue /></Extraction>
+    </Extractions>
+    <AttachmentFilters>
+      <AttachmentFilter id="55555555-5555-5555-5555-555555555555" namePatternOperator="Contains" namePatternIsRegex="false" excludeInline="true" requiredCount="1"><NamePattern /><Extensions><Extension>.pdf</Extension></Extensions></AttachmentFilter>
+    </AttachmentFilters>
+    <Destination>
+      <Root>C:\MailArchive\Customers</Root>
+      <FolderTemplate>{Beslagnummer}\Labo-uitslagen</FolderTemplate><FileNameTemplate>{OriginalFileName}</FileNameTemplate>
+      <ReviewRoot>C:\MailArchive\Customers\_NeedsReview</ReviewRoot><ReviewFolderTemplate>Labo-uitslagen</ReviewFolderTemplate><SaveFailedExtractionsToReviewFolder>true</SaveFailedExtractionsToReviewFolder>
+    </Destination>
+    <PostProcessing action="None" category="Saved by Attachment Rule Manager" moveFolderId="" onlyOnSuccess="true" />
+  </Rule>
+  <Rule id="66666666-6666-6666-6666-666666666666" name="Example Service bioveiligheidsaudit" enabled="true" priority="20" stopProcessingOnMatch="true" matchMode="AllConditions" duplicatePolicy="RenameCounter" auditLevel="Summary" saveMode="Attachments" createdAt="2026-07-10T10:00:00.0000000" updatedAt="2026-07-10T10:00:00.0000000" schemaVersion="1.0">
+    <Description>Bewaart uitsluitend PDF-bijlagen van Example Service onder het beslagnummer.</Description>
+    <WatchFolders><Folder id="Inbox" /></WatchFolders>
+    <Conditions>
+      <Condition id="66666666-6666-6666-6666-666666666661" target="SenderEmail" operator="Equals" caseSensitive="false" normalizeWhitespace="true" enabled="true"><Value>notifications@service.example</Value><Value2 /></Condition>
+      <Condition id="66666666-6666-6666-6666-666666666662" target="Subject" operator="StartsWith" caseSensitive="false" normalizeWhitespace="true" enabled="true"><Value>Rapport </Value><Value2 /></Condition>
+      <Condition id="66666666-6666-6666-6666-666666666663" target="HasAttachments" operator="Equals" caseSensitive="false" normalizeWhitespace="true" enabled="true"><Value>true</Value><Value2 /></Condition>
+    </Conditions>
+    <Extractions>
+      <Extraction id="66666666-6666-6666-6666-666666666664" name="Beslagnummer" source="Subject" method="RegexCapture" captureGroup="1" required="true" sanitizeForPath="true" trimResult="true" transform="None" transformFormat=""><Pattern>(BE\d{8}-\d{4})</Pattern><Pattern2 /><DefaultValue /></Extraction>
+    </Extractions>
+    <AttachmentFilters>
+      <AttachmentFilter id="66666666-6666-6666-6666-666666666665" namePatternOperator="Contains" namePatternIsRegex="false" excludeInline="true" requiredCount="1"><NamePattern /><Extensions><Extension>.pdf</Extension></Extensions></AttachmentFilter>
+    </AttachmentFilters>
+    <Destination>
+      <Root>C:\MailArchive\Customers</Root>
+      <FolderTemplate>{Beslagnummer}\Bioveiligheidsaudit</FolderTemplate><FileNameTemplate>{OriginalFileName}</FileNameTemplate>
+      <ReviewRoot>C:\MailArchive\Customers\_NeedsReview</ReviewRoot><ReviewFolderTemplate>Bioveiligheidsaudit</ReviewFolderTemplate><SaveFailedExtractionsToReviewFolder>true</SaveFailedExtractionsToReviewFolder>
+    </Destination>
+    <PostProcessing action="None" category="Saved by Attachment Rule Manager" moveFolderId="" onlyOnSuccess="true" />
+  </Rule>
+  <Rule id="77777777-7777-7777-7777-777777777777" name="Duurzaamheidsmonitor als HTML" enabled="true" priority="30" stopProcessingOnMatch="true" matchMode="AllConditions" duplicatePolicy="RenameCounter" auditLevel="Summary" saveMode="MessageHtml" createdAt="2026-07-10T10:00:00.0000000" updatedAt="2026-07-10T10:00:00.0000000" schemaVersion="1.0">
+    <Description>Bewaart de volledige Example Forms-bevestiging als HTML-pagina.</Description>
+    <WatchFolders><Folder id="Inbox" /></WatchFolders>
+    <Conditions>
+      <Condition id="77777777-7777-7777-7777-777777777771" target="SenderEmail" operator="Equals" caseSensitive="false" normalizeWhitespace="true" enabled="true"><Value>forms@service.example</Value><Value2 /></Condition>
+      <Condition id="77777777-7777-7777-7777-777777777772" target="Subject" operator="Equals" caseSensitive="false" normalizeWhitespace="true" enabled="true"><Value>Bedankt dat je dit formulier hebt ingevuld: Duurzaamheidsmonitor</Value><Value2 /></Condition>
+    </Conditions>
+    <Extractions>
+      <Extraction id="77777777-7777-7777-7777-777777777773" name="Beslagnummer" source="BodyHtmlStripped" method="RegexCapture" captureGroup="1" required="true" sanitizeForPath="true" trimResult="true" transform="None" transformFormat=""><Pattern>Beslagnummer\s*\*?\s*(BE\d{8}-\d{4})</Pattern><Pattern2 /><DefaultValue /></Extraction>
+    </Extractions>
+    <AttachmentFilters />
+    <Destination>
+      <Root>C:\MailArchive\Customers</Root>
+      <FolderTemplate>{Beslagnummer}\Duurzaamheidsmonitor</FolderTemplate><FileNameTemplate>Duurzaamheidsmonitor_{ReceivedDate:yyyyMMdd}.html</FileNameTemplate>
+      <ReviewRoot>C:\MailArchive\Customers\_NeedsReview</ReviewRoot><ReviewFolderTemplate>Duurzaamheidsmonitor</ReviewFolderTemplate><SaveFailedExtractionsToReviewFolder>true</SaveFailedExtractionsToReviewFolder>
+    </Destination>
+    <PostProcessing action="None" category="Saved by Attachment Rule Manager" moveFolderId="" onlyOnSuccess="true" />
+  </Rule>
+</Rules>

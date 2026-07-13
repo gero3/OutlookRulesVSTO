@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Settings schemaVersion="1.0">
+  <Language>en</Language>
+  <StorageRoot>%APPDATA%\OutlookRulesVSTO</StorageRoot>
+  <RulesPath>%APPDATA%\OutlookRulesVSTO\rules.xml</RulesPath>
+  <LogsPath>%APPDATA%\OutlookRulesVSTO\logs</LogsPath>
+  <ProcessedHistoryPath>%APPDATA%\OutlookRulesVSTO\processed-history.csv</ProcessedHistoryPath>
+  <DefaultDestinationRoot>C:\MailArchive\Customers</DefaultDestinationRoot>
+  <AllowedDestinationRoots>
+    <Root>C:\MailArchive\Customers</Root>
+  </AllowedDestinationRoots>
+  <RestrictDestinationsToAllowedRoots>false</RestrictDestinationsToAllowedRoots>
+  <SaveFailedExtractionsToReviewFolder>true</SaveFailedExtractionsToReviewFolder>
+  <DefaultDuplicatePolicy>RenameCounter</DefaultDuplicatePolicy>
+  <LogRetentionDays>90</LogRetentionDays>
+  <StartupCatchUpEnabled>true</StartupCatchUpEnabled>
+  <StartupCatchUpLookbackDays>7</StartupCatchUpLookbackDays>
+  <MaximumAttachmentCount>25</MaximumAttachmentCount>
+  <MaximumAttachmentSizeKb>51200</MaximumAttachmentSizeKb>
+  <DebugLogging>false</DebugLogging>
+  <RuleEditingEnabled>true</RuleEditingEnabled>
+  <AiExtractionName>CaseNumber</AiExtractionName>
+  <AiExtractionPattern>(?:CaseNumber|Case number|Reference)\s*[:#]?\s*([A-Za-z0-9][A-Za-z0-9._/-]{2,})</AiExtractionPattern>
+  <AiExtractionRequired>true</AiExtractionRequired>
+  <AiExtractionInstructions>Choose the source in which the case number or reference appears most clearly.</AiExtractionInstructions>
+  <AiSystemPrompt>Create a rule for a recurring stream of similar emails from one example email. Use only stable characteristics, base every choice on the example data, and do not invent information.</AiSystemPrompt>
+  <AiMetadataPrompt>Provide a short general rule name and description. State the specific purpose and omit variable names, numbers, dates, locations, and references.</AiMetadataPrompt>
+  <AiSenderPrompt>Use a fixed functional sender address as a condition, but not a personal address that may send multiple types of email.</AiSenderPrompt>
+  <AiSubjectPrompt>Choose the shortest literal text that identifies the recurring type or purpose and omit variable data.</AiSubjectPrompt>
+  <AiAttachmentPrompt>Use only a stable part of a filename or a distinctive extension; omit variable data from the recognition value.</AiAttachmentPrompt>
+  <AiFolderPrompt>Provide a short English folder name for the specific email type, without variable data or path characters.</AiFolderPrompt>
+</Settings>

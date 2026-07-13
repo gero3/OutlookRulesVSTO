@@ -1,0 +1,10 @@
+From: Example Forms <forms@service.example>
+To: recipient@example.test
+Date: Sat, 11 Jul 2026 12:00:00 +0200
+Subject: Bedankt dat je dit formulier hebt ingevuld: Duurzaamheidsmonitor
+Message-ID: <duurzaam-01@service.example>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+<html><body><h1>Duurzaamheidsmonitor</h1><p>Je antwoord is geregistreerd.</p><p><strong>Beslagnummer *</strong><br>BE30000001-3001</p><p>Bedrijfsnaam: De Groene Hoeve</p></body></html>

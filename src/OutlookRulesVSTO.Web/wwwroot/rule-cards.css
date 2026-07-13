@@ -1,0 +1,114 @@
+.rules {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: #061f31;
+}
+
+.rule.rule-card {
+  display: block;
+  min-height: 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  overflow: visible;
+  transition: border-color .15s, transform .15s, background .15s;
+}
+
+.rule.rule-card:hover {
+  border-color: #39708c;
+  background: #0d334b;
+  transform: translateY(-1px);
+}
+
+.rule-card-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  min-height: auto;
+  height: auto;
+  padding: 17px 18px 13px;
+  border: 0;
+  background: transparent;
+}
+
+.rule-card-head .switch { margin-top: 4px; }
+.rule-identity { min-width: 0; flex: 1; }
+.rule-title-line { display: flex; align-items: center; flex-wrap: wrap; gap: 9px; }
+.rule-title-line h2 { margin: 0; font-size: 17px; }
+.rule-identity>p { margin: 4px 0 0; color: var(--muted); }
+.rule-state { padding: 2px 7px; border-radius: 999px; font-size: 10px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; }
+.rule-state.active { color: #78f6e9; background: #0d504d; }
+.rule-state.inactive { color: #b8c7cf; background: #304652; }
+.priority-badge { margin-top: 2px; padding: 4px 8px; border: 1px solid var(--line); border-radius: 7px; color: var(--accent); font-size: 12px; font-weight: 800; }
+.rule-card-head .more { margin-top: 0; }
+
+.rule-card-details {
+  display: flex;
+  gap: 24px;
+  padding: 13px 18px 16px 70px;
+  border-top: 1px solid #21465c;
+}
+
+.rule-card-details section { min-width: 0; flex: 1; }
+.rule-card-details section:last-child { flex: 1.2; }
+.detail-label { display: flex; align-items: center; color: var(--accent); font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.detail-label .icon { width: 15px; height: 15px; margin-right: 6px; }
+.rule-card-details p { margin: 5px 0 0; color: var(--muted); white-space: normal; overflow-wrap: anywhere; }
+.condition-list { display: flex; flex-direction: column; gap: 6px; margin: 7px 0 0; padding: 0; list-style: none; }
+.condition-list li { position: relative; padding-left: 15px; color: var(--muted); overflow-wrap: anywhere; }
+.condition-list li::before { content: ""; position: absolute; left: 0; top: .62em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+.extraction-list { display: flex; flex-direction: column; gap: 6px; margin: 7px 0 0; padding: 0; list-style: none; }
+.extraction-list li { position: relative; padding-left: 15px; color: var(--muted); overflow-wrap: anywhere; }
+.extraction-list li::before { content: ""; position: absolute; left: 0; top: .62em; width: 6px; height: 6px; border: 1px solid var(--accent); border-radius: 2px; transform: rotate(45deg); }
+.regex-explanation { margin-top: 9px; padding: 9px 11px; border-left: 2px solid var(--accent); border-radius: 0 6px 6px 0; background: #061f31; }
+.regex-explanation strong { color: var(--text); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; }
+.regex-explanation ul { display: flex; flex-direction: column; gap: 4px; margin: 6px 0 0; padding-left: 17px; list-style: disc; }
+.regex-explanation ul li { padding-left: 0; color: var(--muted); font-size: 12px; }
+.regex-explanation ul li::before { display: none; }
+
+.rule.rule-card.disabled { box-shadow: inset 4px 0 #718796; }
+.rule.rule-card.disabled h2::after { display: none; }
+.rule.rule-card.disabled .rule-card-details { border-top-color: #304652; }
+
+.rule-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: auto;
+  padding: 9px 14px 10px 70px;
+  border-top: 1px solid #21465c;
+  background: #08283a;
+}
+
+.rule-card-actions button {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  padding: 7px 10px;
+  border-color: transparent;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.rule-card-actions button:hover { color: var(--text); background: var(--surface2); border-color: var(--line); }
+.rule-card-actions button.danger { color: var(--danger); margin-left: auto; }
+.rule-card-actions .icon { width: 16px; height: 16px; margin-right: 6px; }
+.action-divider { width: 1px; height: 22px; margin: 0 4px; background: var(--line); }
+.rule.rule-card.disabled .rule-card-actions { background: #102b3a; border-top-color: #304652; }
+.read-only .rule-card-actions { display: none; }
+
+@media (max-width: 700px) {
+  .rules { padding: 10px; }
+  .rule-card-head { gap: 10px; padding: 14px; }
+  .priority-badge { display: none; }
+  .rule-card-details { flex-direction: column; gap: 13px; padding: 12px 14px 15px; }
+  .rule-identity>p { font-size: 13px; }
+  .rule-card-actions { padding-left: 12px; padding-right: 12px; }
+  .rule-card-actions button { width: 38px; height: 36px; justify-content: center; padding: 0; font-size: 0; }
+  .rule-card-actions .icon { width: 18px; height: 18px; margin: 0; }
+  .rule-card-actions button.danger { margin-left: auto; }
+}

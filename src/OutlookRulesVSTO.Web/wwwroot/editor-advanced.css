@@ -1,0 +1,42 @@
+.builder-row.extraction {
+  grid-template-columns: 1fr 1fr 1.2fr 1.5fr auto;
+}
+.builder-row.condition-row { grid-template-columns: 1fr 1fr 1.2fr 1.2fr auto auto; }
+.mini-check { display: flex; flex-direction: row; align-items: center; gap: 6px; color: var(--muted); font-size: 12px; font-weight: 500; }
+.mini-check input { width: 16px; accent-color: var(--accent); }
+.row-advanced { grid-column: 1 / -1; border-top: 1px solid var(--line); padding-top: 10px; }
+.row-advanced summary { cursor: pointer; color: var(--accent); font-size: 13px; font-weight: 700; }
+.row-advanced .fields { margin-top: 10px; }
+
+.inline-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+@media (max-width: 800px) {
+  .builder-row.extraction, .builder-row.condition-row { grid-template-columns: 1fr; }
+}
+
+.preview-button { margin-top: 16px; }
+.preview-result { margin-top: 14px; padding: 16px; border: 1px solid var(--line); border-radius: 8px; background: #061f31; }
+.preview-result.success { border-color: var(--accent); }
+.preview-result.failure { border-color: var(--danger); }
+.preview-result strong { display: block; margin-bottom: 6px; }
+.heading-actions { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+@media (max-width: 600px) { .heading-actions { align-items: flex-start; flex-direction: column; } }
+.eml-drop { display: flex; align-items: center; gap: 12px; border: 1px dashed var(--accent); border-radius: 9px; background: #08283b; padding: 18px; cursor: pointer; margin-bottom: 14px; }
+.eml-drop:hover { background: #0b3348; }
+.eml-drop .icon { width: 26px; height: 26px; color: var(--accent); }
+.eml-drop strong { display: block; }
+.eml-drop span { color: var(--muted); font-weight: 400; }
+.eml-drop > div { flex: 1; }
+.eml-drop.dragging { background: #0b4058; border-style: solid; }
+.fixed-field { min-height: 44px; padding: 7px 12px; border: 1px solid var(--border); border-radius: 7px; background: #0a2a3d; display: flex; flex-direction: column; justify-content: center; }
+.fixed-field small { color: var(--muted); font-size: 11px; line-height: 1.1; }
+.fixed-field strong { color: var(--text); font-size: 14px; white-space: nowrap; }
+.eml-summary { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin-bottom: 12px; }
+.eml-summary b { color: var(--muted); }
+.default-root-hint { display: flex; align-items: center; gap: 5px; color: var(--muted); }
+.default-root-hint .icon { width: 14px; height: 14px; color: var(--accent); }
+.default-root-hint a { color: var(--accent); }

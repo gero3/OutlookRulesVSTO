@@ -1,0 +1,28 @@
+From: Kwaliteitsdienst Slachthuis Noord <rapportage@slachthuis-noord.example>
+To: recipient@example.test
+Date: Sat, 11 Jul 2026 09:05:00 +0200
+Subject: Longletselsrapport levering 2026-0711 - BE87654321-0202
+Message-ID: <ai-02@slachthuis-noord.example>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="ai02-boundary"
+
+--ai02-boundary
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+Beste,
+
+In bijlage staat het longletselsrapport van de levering van Varkensbedrijf Zonnehoeve.
+Beslagnummer: BE87654321-0202
+Leveringsdatum: 10-07-2026
+Aantal beoordeelde dieren: 96
+
+Met vriendelijke groet,
+Kwaliteitsdienst
+--ai02-boundary
+Content-Type: application/pdf; name="Longletsels_BE87654321-0202_20260710.pdf"
+Content-Disposition: attachment; filename="Longletsels_BE87654321-0202_20260710.pdf"
+Content-Transfer-Encoding: base64
+
+VEVTVCBQREYgLSBMT05HTEVUU0VMU1JBUFBPUlQ=
+--ai02-boundary--

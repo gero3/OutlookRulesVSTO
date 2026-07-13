@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <ItemGroup><InternalsVisibleTo Include="OutlookRulesVSTO.WebTests" /></ItemGroup>
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OutlookRulesVSTO.Core\OutlookRulesVSTO.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MimeKit" Version="4.17.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\*.txt" />
+  </ItemGroup>
+</Project>

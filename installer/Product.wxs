@@ -1,0 +1,50 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+     xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
+  <Package Name="OutlookRulesVSTO"
+           Manufacturer="OutlookRulesVSTO"
+           Version="$(var.OutlookRulesVSTOVersion)"
+           ProductCode="$(var.OutlookRulesVSTOProductCode)"
+           UpgradeCode="A06BC59F-23B7-47B6-9DF9-C8797F21EFA5"
+           Scope="perMachine">
+    <MajorUpgrade DowngradeErrorMessage="Er is al een nieuwere versie van OutlookRulesVSTO geïnstalleerd." />
+    <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
+
+    <StandardDirectory Id="ProgramFiles64Folder">
+      <Directory Id="INSTALLFOLDER" Name="OutlookRulesVSTO" />
+    </StandardDirectory>
+
+    <Feature Id="MainFeature" Title="OutlookRulesVSTO" Level="1">
+      <ComponentGroupRef Id="PublishedFiles" />
+    </Feature>
+
+    <ui:WixUI Id="WixUI_InstallDir" InstallDirectory="INSTALLFOLDER" />
+
+    <PropertyRef Id="WIX_IS_NETFRAMEWORK_472_OR_LATER_INSTALLED" />
+    <Property Id="OUTLOOKCTRPLATFORM"><RegistrySearch Id="FindOutlookClickToRun" Root="HKLM" Key="SOFTWARE\Microsoft\Office\ClickToRun\Configuration" Name="Platform" Type="raw" Bitness="always64" /></Property>
+    <Property Id="OUTLOOKBITNESS64"><RegistrySearch Id="FindOutlook64" Root="HKLM" Key="SOFTWARE\Microsoft\Office\16.0\Outlook" Name="Bitness" Type="raw" Bitness="always64" /></Property>
+    <Property Id="OUTLOOKBITNESS32"><RegistrySearch Id="FindOutlook32" Root="HKLM" Key="SOFTWARE\Microsoft\Office\16.0\Outlook" Name="Bitness" Type="raw" Bitness="always32" /></Property>
+    <Property Id="OUTLOOK15BITNESS64"><RegistrySearch Id="FindOutlook15_64" Root="HKLM" Key="SOFTWARE\Microsoft\Office\15.0\Outlook" Name="Bitness" Type="raw" Bitness="always64" /></Property>
+    <Property Id="OUTLOOK15BITNESS32"><RegistrySearch Id="FindOutlook15_32" Root="HKLM" Key="SOFTWARE\Microsoft\Office\15.0\Outlook" Name="Bitness" Type="raw" Bitness="always32" /></Property>
+    <Property Id="OUTLOOK14BITNESS64"><RegistrySearch Id="FindOutlook14_64" Root="HKLM" Key="SOFTWARE\Microsoft\Office\14.0\Outlook" Name="Bitness" Type="raw" Bitness="always64" /></Property>
+    <Property Id="OUTLOOK14BITNESS32"><RegistrySearch Id="FindOutlook14_32" Root="HKLM" Key="SOFTWARE\Microsoft\Office\14.0\Outlook" Name="Bitness" Type="raw" Bitness="always32" /></Property>
+    <Launch Message="OutlookRulesVSTO vereist .NET Framework 4.7.2 of nieuwer voor de installatie-integratie." Condition="Installed OR WIX_IS_NETFRAMEWORK_472_OR_LATER_INSTALLED" />
+    <Launch Message="Outlook Classic werd niet gevonden. Installeer Outlook Classic voordat u OutlookRulesVSTO installeert." Condition="Installed OR OUTLOOKCTRPLATFORM OR OUTLOOKBITNESS64 OR OUTLOOKBITNESS32 OR OUTLOOK15BITNESS64 OR OUTLOOK15BITNESS32 OR OUTLOOK14BITNESS64 OR OUTLOOK14BITNESS32" />
+
+    <Binary Id="OutlookRulesVSTOCustomActions" SourceFile="$(var.CustomActionPath)" />
+    <CustomAction Id="InstallOutlookIntegration" BinaryRef="OutlookRulesVSTOCustomActions" DllEntry="Install"
+                  Execute="deferred" Impersonate="no" Return="check" />
+    <CustomAction Id="RollbackOutlookIntegration" BinaryRef="OutlookRulesVSTOCustomActions" DllEntry="RollbackInstall"
+                  Execute="rollback" Impersonate="no" Return="ignore" />
+    <CustomAction Id="UninstallOutlookIntegration" BinaryRef="OutlookRulesVSTOCustomActions" DllEntry="Uninstall"
+                  Execute="deferred" Impersonate="no" Return="check" />
+    <SetProperty Id="InstallOutlookIntegration" Value="INSTALLFOLDER=[INSTALLFOLDER]" Before="InstallOutlookIntegration" Sequence="execute" Condition="NOT REMOVE~=&quot;ALL&quot;" />
+    <SetProperty Id="RollbackOutlookIntegration" Value="INSTALLFOLDER=[INSTALLFOLDER];PRESERVEEXISTING=[Installed][WIX_UPGRADE_DETECTED]" Before="RollbackOutlookIntegration" Sequence="execute" Condition="NOT REMOVE~=&quot;ALL&quot;" />
+    <SetProperty Id="UninstallOutlookIntegration" Value="INSTALLFOLDER=[INSTALLFOLDER]" Before="UninstallOutlookIntegration" Sequence="execute" Condition="REMOVE~=&quot;ALL&quot; AND NOT UPGRADINGPRODUCTCODE" />
+
+    <InstallExecuteSequence>
+      <Custom Action="RollbackOutlookIntegration" After="InstallFiles" Condition="NOT REMOVE~=&quot;ALL&quot;" />
+      <Custom Action="InstallOutlookIntegration" After="RollbackOutlookIntegration" Condition="NOT REMOVE~=&quot;ALL&quot;" />
+      <Custom Action="UninstallOutlookIntegration" Before="RemoveFiles" Condition="REMOVE~=&quot;ALL&quot; AND NOT UPGRADINGPRODUCTCODE" />
+    </InstallExecuteSequence>
+  </Package>
+</Wix>

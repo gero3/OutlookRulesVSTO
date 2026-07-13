@@ -1,0 +1,21 @@
+From: Bestellingen Varkensbedrijf De Eik <bestelling@deeik.example>
+To: recipient@example.test
+Date: Sat, 11 Jul 2026 08:15:00 +0200
+Subject: Medicatiebestelling zeugen - BE12345678-0101
+Message-ID: <ai-01@deeik.example>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+Dag dokter,
+
+Graag voor beslag BE12345678-0101:
+- 2 flacons ijzerinjectie voor de biggen;
+- 1 verpakking ontstekingsremmer;
+- 3 zakken elektrolyten.
+
+De volgende bedrijfsronde is gepland op 15 juli. Kun je de bestelling dan meebrengen?
+
+Met vriendelijke groet,
+Els Vermeulen
+Varkensbedrijf De Eik

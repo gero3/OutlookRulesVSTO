@@ -1,0 +1,4 @@
+[
+  { "code": "en", "label": "English", "builtIn": true },
+  { "code": "nl", "label": "Nederlands", "file": "/locales/nl.js" }
+]

@@ -1,0 +1,4 @@
+# Keep ownership explicit so GitHub can require owner review as soon as
+# branch protection is available for this private repository.
+* @gero3
+

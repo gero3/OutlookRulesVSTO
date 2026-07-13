@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/OutlookRulesVSTO.Core/OutlookRulesVSTO.Core.csproj" />
+    <Project Path="src/OutlookRulesVSTO.Application/OutlookRulesVSTO.Application.csproj" />
+    <Project Path="src/OutlookRulesVSTO.Bridge/OutlookRulesVSTO.Bridge.csproj" />
+    <Project Path="src/OutlookRulesVSTO.Web/OutlookRulesVSTO.Web.csproj" />
+    <Project Path="src/OutlookRulesVSTO.Host/OutlookRulesVSTO.Host.csproj" />
+    <Project Path="src/OutlookRulesVSTO.Vsto/OutlookRulesVSTO.Vsto.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/OutlookRulesVSTO.Tests/OutlookRulesVSTO.Tests.csproj" />
+    <Project Path="tests/OutlookRulesVSTO.WebTests/OutlookRulesVSTO.WebTests.csproj" />
+  </Folder>
+</Solution>

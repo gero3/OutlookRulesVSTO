@@ -1,0 +1,23 @@
+From: Pathologie Centrum <uitslagen@pathologie.example>
+To: recipient@example.test
+Date: Sat, 11 Jul 2026 10:20:00 +0200
+Subject: Beproevingsrapport (volledig resultaat) bacteriologie
+Message-ID: <labo-03@pathologie.example>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="labo03"
+
+--labo03
+Content-Type: text/plain; charset=utf-8
+
+Beste collega,
+Beslagnummer: BE10000003-1003
+Stalen: long en pleura
+Isolatie: Actinobacillus pleuropneumoniae
+Zie antibiogram in bijlage.
+--labo03
+Content-Type: application/pdf; name="Bacteriologie_antibiogram.pdf"
+Content-Disposition: attachment; filename="Bacteriologie_antibiogram.pdf"
+Content-Transfer-Encoding: base64
+
+VEVTVCBQREYgLSBCQUNURVJJT0xPR0lF
+--labo03--

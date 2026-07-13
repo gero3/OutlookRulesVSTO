@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MessageFixture id="fixture-labo-001">
+  <Sender email="lab@example.com" name="Lab Supplier" />
+  <Recipients>
+    <To>recipient@example.test</To>
+  </Recipients>
+  <Subject>Full test report 123</Subject>
+  <ReceivedTime>2026-07-08T10:15:00</ReceivedTime>
+  <BodyText>
+Case number: 123456
+Result: OK
+  </BodyText>
+  <Attachments>
+    <Attachment name="rapport.pdf" sizeKb="42" fixturePath="attachments\rapport.pdf" />
+    <Attachment name="logo.png" sizeKb="4" fixturePath="attachments\logo.png" isInline="true" />
+  </Attachments>
+</MessageFixture>

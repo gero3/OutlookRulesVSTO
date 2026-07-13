@@ -1,0 +1,57 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+     xmlns:bal="http://wixtoolset.org/schemas/v4/wxs/bal"
+     xmlns:netfx="http://wixtoolset.org/schemas/v4/wxs/netfx"
+     xmlns:util="http://wixtoolset.org/schemas/v4/wxs/util">
+  <Bundle Name="OutlookRulesVSTO"
+          Manufacturer="OutlookRulesVSTO"
+          Version="$(var.OutlookRulesVSTOVersion)"
+          UpgradeCode="A8D7780D-58D8-4B78-AE27-CB19DA6FCF50">
+    <BootstrapperApplication>
+      <bal:WixStandardBootstrapperApplication Theme="hyperlinkLicense" LicenseUrl="" SuppressOptionsUI="yes" ShowVersion="yes" />
+    </BootstrapperApplication>
+
+    <netfx:DotNetCoreSearch Id="FindDotNetDesktop10" RuntimeType="desktop" Platform="x64" MajorVersion="10" Variable="DotNetDesktop10Version" />
+    <netfx:DotNetCoreSearch Id="FindAspNetCore10" RuntimeType="aspnet" Platform="x64" MajorVersion="10" Variable="AspNetCore10Version" />
+    <util:RegistrySearch Id="FindWebView2Machine" Root="HKLM" Key="SOFTWARE\Microsoft\EdgeUpdate\Clients\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}" Value="pv" Variable="WebView2MachineVersion" Bitness="always32" />
+    <util:RegistrySearch Id="FindWebView2User" Root="HKCU" Key="Software\Microsoft\EdgeUpdate\Clients\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}" Value="pv" Variable="WebView2UserVersion" Bitness="always32" />
+    <util:RegistrySearch Id="FindVstoRuntime" Root="HKLM" Key="SOFTWARE\Microsoft\VSTO Runtime Setup\v4R" Value="Version" Variable="VstoRuntimeVersion" Bitness="always32" />
+    <util:RegistrySearch Id="FindOutlookClickToRun" Root="HKLM" Key="SOFTWARE\Microsoft\Office\ClickToRun\Configuration" Value="Platform" Variable="OutlookPlatform" Bitness="always64" />
+    <util:RegistrySearch Id="FindOutlook64" Root="HKLM" Key="SOFTWARE\Microsoft\Office\16.0\Outlook" Value="Bitness" Variable="OutlookBitness64" Bitness="always64" />
+    <util:RegistrySearch Id="FindOutlook32" Root="HKLM" Key="SOFTWARE\Microsoft\Office\16.0\Outlook" Value="Bitness" Variable="OutlookBitness32" Bitness="always32" />
+    <util:RegistrySearch Id="FindOutlook15_64" Root="HKLM" Key="SOFTWARE\Microsoft\Office\15.0\Outlook" Value="Bitness" Variable="Outlook15Bitness64" Bitness="always64" />
+    <util:RegistrySearch Id="FindOutlook15_32" Root="HKLM" Key="SOFTWARE\Microsoft\Office\15.0\Outlook" Value="Bitness" Variable="Outlook15Bitness32" Bitness="always32" />
+    <util:RegistrySearch Id="FindOutlook14_64" Root="HKLM" Key="SOFTWARE\Microsoft\Office\14.0\Outlook" Value="Bitness" Variable="Outlook14Bitness64" Bitness="always64" />
+    <util:RegistrySearch Id="FindOutlook14_32" Root="HKLM" Key="SOFTWARE\Microsoft\Office\14.0\Outlook" Value="Bitness" Variable="Outlook14Bitness32" Bitness="always32" />
+
+    <Chain>
+      <ExePackage Id="DotNetDesktop10"
+                  SourceFile="$(var.PrerequisitesDir)\windowsdesktop-runtime-10-win-x64.exe"
+                  DetectCondition="DotNetDesktop10Version &gt;= v10.0.0"
+                  InstallArguments="/install /quiet /norestart"
+                  Permanent="yes" Vital="yes" />
+      <ExePackage Id="AspNetCore10"
+                  SourceFile="$(var.PrerequisitesDir)\aspnetcore-runtime-10-win-x64.exe"
+                  DetectCondition="AspNetCore10Version &gt;= v10.0.0"
+                  InstallArguments="/install /quiet /norestart"
+                  Permanent="yes" Vital="yes" />
+      <ExePackage Id="WebView2Runtime"
+                  SourceFile="$(var.PrerequisitesDir)\MicrosoftEdgeWebview2Setup.exe"
+                  DetectCondition="(WebView2MachineVersion &gt; v0.0.0.0) OR (WebView2UserVersion &gt; v0.0.0.0)"
+                  InstallArguments="/silent /install"
+                  Permanent="yes" Vital="yes" />
+      <ExePackage Id="VstoRuntimeX64"
+                  SourceFile="$(var.PrerequisitesDir)\vstor40_x64.exe"
+                  DetectCondition="VstoRuntimeVersion &gt;= v10.0.30319"
+                  InstallArguments="/q"
+                  InstallCondition="(OutlookPlatform = &quot;x64&quot;) OR (OutlookBitness64 = &quot;x64&quot;) OR (Outlook15Bitness64 = &quot;x64&quot;) OR (Outlook14Bitness64 = &quot;x64&quot;)"
+                  Permanent="yes" Vital="yes" />
+      <ExePackage Id="VstoRuntimeX86"
+                  SourceFile="$(var.PrerequisitesDir)\vstor40_x86.exe"
+                  DetectCondition="VstoRuntimeVersion &gt;= v10.0.30319"
+                  InstallArguments="/q"
+                  InstallCondition="(OutlookPlatform = &quot;x86&quot;) OR (OutlookBitness32 = &quot;x86&quot;) OR (Outlook15Bitness32 = &quot;x86&quot;) OR (Outlook14Bitness32 = &quot;x86&quot;)"
+                  Permanent="yes" Vital="yes" />
+      <MsiPackage Id="OutlookRulesVSTOMsi" SourceFile="$(var.MsiPath)" Vital="yes" Visible="yes" />
+    </Chain>
+  </Bundle>
+</Wix>
