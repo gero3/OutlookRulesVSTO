@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MessageFixture id="fixture-labo-missing">
+  <Sender email="lab@example.com" name="Lab Supplier" />
+  <Subject>Full test report 124</Subject>
+  <ReceivedTime>2026-07-08T11:15:00</ReceivedTime>
+  <BodyText>
+Result: OK
+  </BodyText>
+  <Attachments>
+    <Attachment name="rapport.pdf" sizeKb="42" fixturePath="attachments\rapport.pdf" />
+  </Attachments>
+</MessageFixture>

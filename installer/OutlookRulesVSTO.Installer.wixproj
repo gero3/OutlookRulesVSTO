@@ -1,0 +1,23 @@
+<Project Sdk="WixToolset.Sdk/6.0.2">
+  <PropertyGroup>
+    <OutputName>OutlookRulesVSTOSetup</OutputName>
+    <OutputType>Package</OutputType>
+    <InstallerPlatform>x64</InstallerPlatform>
+    <OutlookRulesVSTOVersion Condition="'$(OutlookRulesVSTOVersion)' == ''">1.0.1</OutlookRulesVSTOVersion>
+    <OutlookRulesVSTOProductCode Condition="'$(OutlookRulesVSTOProductCode)' == ''">C3BC640E-14D6-A65D-937E-928094902F01</OutlookRulesVSTOProductCode>
+    <PublishDir>$(MSBuildProjectDirectory)\..\artifacts\OutlookRulesVSTO</PublishDir>
+    <DefineConstants>PublishDir=$(PublishDir)</DefineConstants>
+    <DefineConstants>$(DefineConstants);CustomActionPath=$(MSBuildProjectDirectory)\..\src\OutlookRulesVSTO.InstallerActions\bin\$(Configuration)\net472\OutlookRulesVSTO.InstallerActions.CA.dll;OutlookRulesVSTOVersion=$(OutlookRulesVSTOVersion);OutlookRulesVSTOProductCode=$(OutlookRulesVSTOProductCode)</DefineConstants>
+    <EnableDefaultItems>false</EnableDefaultItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="WixToolset.UI.wixext" Version="6.0.2" />
+    <PackageReference Include="WixToolset.Netfx.wixext" Version="6.0.2" />
+    <Compile Include="Product.wxs" />
+    <Compile Include="$(IntermediateOutputPath)GeneratedFiles.wxs" />
+    <ProjectReference Include="..\src\OutlookRulesVSTO.InstallerActions\OutlookRulesVSTO.InstallerActions.csproj" />
+  </ItemGroup>
+  <Target Name="GenerateInstallerFiles" BeforeTargets="BeforeBuild">
+    <Exec Command="powershell -NoProfile -ExecutionPolicy Bypass -File &quot;$(MSBuildProjectDirectory)\Generate-WixFiles.ps1&quot; -Output &quot;$(IntermediateOutputPath)GeneratedFiles.wxs&quot; -Source &quot;$(PublishDir).&quot;" />
+  </Target>
+</Project>

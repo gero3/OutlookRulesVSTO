@@ -1,0 +1,16 @@
+<Project Sdk="WixToolset.Sdk/6.0.2">
+  <PropertyGroup>
+    <OutputName>OutlookRulesVSTOInstaller</OutputName>
+    <OutputType>Bundle</OutputType>
+    <InstallerPlatform>x64</InstallerPlatform>
+    <OutlookRulesVSTOVersion Condition="'$(OutlookRulesVSTOVersion)' == ''">1.0.1</OutlookRulesVSTOVersion>
+    <DefineConstants>MsiPath=$(MSBuildProjectDirectory)\bin\$(Configuration)\OutlookRulesVSTOSetup.msi;PrerequisitesDir=$(MSBuildProjectDirectory)\prerequisites;OutlookRulesVSTOVersion=$(OutlookRulesVSTOVersion)</DefineConstants>
+    <EnableDefaultItems>false</EnableDefaultItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="WixToolset.Bal.wixext" Version="6.0.2" />
+    <PackageReference Include="WixToolset.Util.wixext" Version="6.0.2" />
+    <PackageReference Include="WixToolset.Netfx.wixext" Version="6.0.2" />
+    <Compile Include="Bundle.wxs" />
+  </ItemGroup>
+</Project>

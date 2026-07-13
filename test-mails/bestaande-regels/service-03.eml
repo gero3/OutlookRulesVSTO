@@ -1,0 +1,19 @@
+From: notifications@service.example
+To: recipient@example.test
+Date: Sat, 11 Jul 2026 11:20:00 +0200
+Subject: Rapport BE20000003-2003 opvolgaudit
+Message-ID: <service-03@service.example>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="ff03"
+
+--ff03
+Content-Type: text/plain; charset=utf-8
+
+De opvolgaudit werd afgerond. Raadpleeg het ondertekende verslag in bijlage.
+--ff03
+Content-Type: application/pdf; name="Ondertekend_verslag.pdf"
+Content-Disposition: attachment; filename="Ondertekend_verslag.pdf"
+Content-Transfer-Encoding: base64
+
+VEVTVCBQREYgLSBGQVJNRklUIDM=
+--ff03--

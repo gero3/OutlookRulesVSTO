@@ -1,0 +1,19 @@
+From: Example Service <notifications@service.example>
+To: recipient@example.test
+Date: Sat, 11 Jul 2026 11:10:00 +0200
+Subject: Rapport jaarlijkse audit voor BE20000002-2002 - actieplan
+Message-ID: <service-02@service.example>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="ff02"
+
+--ff02
+Content-Type: text/plain; charset=utf-8
+
+Beste gebruiker, je nieuwe auditrapport en actieplan zijn toegevoegd.
+--ff02
+Content-Type: application/pdf; name="Audit_actieplan_2026.pdf"
+Content-Disposition: attachment; filename="Audit_actieplan_2026.pdf"
+Content-Transfer-Encoding: base64
+
+VEVTVCBQREYgLSBGQVJNRklUIDI=
+--ff02--

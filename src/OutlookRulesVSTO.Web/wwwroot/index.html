@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Outlook Attachment Rule Manager</title><link rel="stylesheet" href="app.css"><link rel="stylesheet" href="states.css"><link rel="stylesheet" href="icons.css"><link rel="stylesheet" href="controls.css"><link rel="stylesheet" href="readonly.css"><link rel="stylesheet" href="all-rules-test.css"><link rel="stylesheet" href="rule-cards.css"><link rel="stylesheet" href="responsive-toolbar.css">
+</head>
+<body>
+  <header><a class="brand" href="/" aria-label="Go to home page">OutlookRulesVSTO</a><nav class="topnav"><a class="active" href="/" data-icon="rules">Rules</a><a href="/logs.html" data-icon="logs">Results</a><a href="/settings.html" data-icon="settings">Settings</a></nav><div class="connection"><i></i> Local configuration</div></header>
+  <main>
+    <p class="eyebrow">OUTLOOK AUTOMATION</p>
+    <h1>Manage attachment rules.</h1>
+    <p class="intro">Choose which email attachments are saved automatically and where they are stored.</p>
+    <section class="toolbar">
+      <label class="search"><span data-icon="search"></span><input id="search" placeholder="Search rules"></label>
+      <button id="aiRule" data-icon="search" title="Maak met AI een conceptregel uit een EML">Create rule with AI</button><input id="aiRuleEml" type="file" accept=".eml,message/rfc822" hidden>
+      <div class="actions"><button class="primary" id="newRule" data-icon="plus" title="New rule" aria-label="New rule">New rule</button><button id="testAllRules" data-icon="play" title="Test EML against all rules" aria-label="Test EML against all rules">Test EML</button><button id="importRules" data-icon="upload" title="Import rules" aria-label="Import rules">Import</button><a class="button" href="/api/rules/export" data-icon="download" title="Export rules" aria-label="Export rules">Export</a><button id="reload" data-icon="refresh" title="Reload rules" aria-label="Reload rules">Reload</button><input id="importFile" type="file" accept=".xml,application/xml" hidden><input id="allRulesEml" type="file" accept=".eml,message/rfc822" hidden></div>
+    </section>
+    <section class="card">
+      <div class="card-head"><div><strong>Rules</strong><span id="count"></span></div><small id="path"></small></div>
+      <div id="rules" class="rules"><div class="loading">Loading rules…</div></div>
+    </section>
+    <div id="allRulesResult" class="test-overlay" hidden><section><div class="test-head"><div><p class="eyebrow">EML RULE TEST</p><h2>Test results for all rules</h2></div><button id="closeAllRulesResult" aria-label="Close">×</button></div><div id="allRulesResultBody" class="test-body"></div></section></div><div id="toast" role="status"></div>
+  </main>
+  <script src="i18n.js"></script><script src="icons.js"></script><script src="app.js"></script>
+</body>
+</html>

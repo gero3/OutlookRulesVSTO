@@ -1,0 +1,25 @@
+version: 2
+updates:
+  # Keep the legacy VSTO project out of Dependabot's Linux evaluation. It
+  # imports Visual Studio Office targets that only exist on Windows.
+  - package-ecosystem: nuget
+    directories:
+      - "/src/OutlookRulesVSTO.Host"
+      - "/src/OutlookRulesVSTO.InstallerActions"
+      - "/src/OutlookRulesVSTO.Web"
+      - "/tests/OutlookRulesVSTO.Tests"
+      - "/tests/OutlookRulesVSTO.WebTests"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      nuget-minor-and-patch:
+        update-types:
+          - minor
+          - patch
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5

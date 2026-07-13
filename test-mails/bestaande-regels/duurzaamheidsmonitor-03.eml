@@ -1,0 +1,10 @@
+From: forms@service.example
+To: recipient@example.test
+Date: Sat, 11 Jul 2026 12:20:00 +0200
+Subject: Bedankt dat je dit formulier hebt ingevuld: Duurzaamheidsmonitor
+Message-ID: <duurzaam-03@service.example>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+<html><body><p>Bedankt voor je inzending.</p><table><tr><td>Beslagnummer</td><td>BE30000003-3003</td></tr><tr><td>Aantal zeugen</td><td>240</td></tr><tr><td>Warmterecuperatie</td><td>aanwezig</td></tr></table></body></html>

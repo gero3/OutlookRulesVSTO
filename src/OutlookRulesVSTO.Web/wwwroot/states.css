@@ -1,0 +1,38 @@
+.rule.disabled {
+  opacity: 1;
+  color: #9bafba;
+  background: repeating-linear-gradient(135deg, #0a2233, #0a2233 10px, #0c2739 10px, #0c2739 20px);
+  box-shadow: inset 4px 0 #718796;
+}
+
+.rule.disabled:hover {
+  background: repeating-linear-gradient(135deg, #0d293b, #0d293b 10px, #102f43 10px, #102f43 20px);
+}
+
+.rule.disabled .priority,
+.rule.disabled small,
+.rule.disabled p {
+  color: #718896;
+}
+
+.rule.disabled h2 {
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+
+.rule.disabled h2::after {
+  content: "Uitgeschakeld";
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 7px;
+  border: 1px solid #718796;
+  border-radius: 999px;
+  color: #b8c7cf;
+  background: #182f3e;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: 2px;
+}

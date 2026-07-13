@@ -1,0 +1,17 @@
+.vs/
+.idea/
+.vscode/
+**/bin/
+**/obj/
+TestResults/
+artifacts/
+models/
+runtime/
+installer/prerequisites/
+*.user
+*.suo
+*.pfx
+*.cer
+*.snk
+*.log
+.codex/

@@ -1,0 +1,22 @@
+From: Dierengezondheidslaboratorium <resultaten@labo.example>
+To: recipient@example.test
+Date: Sat, 11 Jul 2026 10:00:00 +0200
+Subject: Beproevingsrapport (volledig resultaat) PRRS PCR
+Message-ID: <labo-01@labo.example>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="labo01"
+
+--labo01
+Content-Type: text/plain; charset=utf-8
+
+Geachte dierenarts,
+Beslagnummer: BE10000001-1001
+Onderzoek: PRRS PCR op serum
+Resultaat: negatief
+--labo01
+Content-Type: application/pdf; name="PRRS_BE10000001-1001.pdf"
+Content-Disposition: attachment; filename="PRRS_BE10000001-1001.pdf"
+Content-Transfer-Encoding: base64
+
+VEVTVCBQREYgLSBQUlJT
+--labo01--

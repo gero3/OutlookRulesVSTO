@@ -1,0 +1,22 @@
+From: Dierengezondheidslaboratorium <resultaten@labo.example>
+To: recipient@example.test
+Date: Sat, 11 Jul 2026 10:10:00 +0200
+Subject: Beproevingsrapport (volledig resultaat) Salmonella serologie
+Message-ID: <labo-02@labo.example>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="labo02"
+
+--labo02
+Content-Type: text/plain; charset=utf-8
+
+Referentie: LAB-2026-22018
+Beslagnummer: BE10000002-1002
+Materiaal: 12 bloedstalen vleesvarkens
+Onderzoek: Salmonella-antistoffen
+--labo02
+Content-Type: application/pdf; name="Salmonella_22018.pdf"
+Content-Disposition: attachment; filename="Salmonella_22018.pdf"
+Content-Transfer-Encoding: base64
+
+VEVTVCBQREYgLSBTQUxNT05FTExB
+--labo02--

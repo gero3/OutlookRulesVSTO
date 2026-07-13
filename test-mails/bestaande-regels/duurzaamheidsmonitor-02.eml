@@ -1,0 +1,10 @@
+From: Example Forms <forms@service.example>
+To: recipient@example.test
+Date: Sat, 11 Jul 2026 12:10:00 +0200
+Subject: Bedankt dat je dit formulier hebt ingevuld: Duurzaamheidsmonitor
+Message-ID: <duurzaam-02@service.example>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+<!doctype html><html><body><h2>Antwoorden</h2><div>Bedrijfsleider: Jan Janssens</div><div>Beslagnummer <b>BE30000002-3002</b></div><div>Energieverbruik geregistreerd: ja</div></body></html>

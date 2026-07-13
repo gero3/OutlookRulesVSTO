@@ -1,0 +1,19 @@
+From: Example Service <notifications@service.example>
+To: recipient@example.test
+Date: Sat, 11 Jul 2026 11:00:00 +0200
+Subject: Rapport bioveiligheidsaudit BE20000001-2001
+Message-ID: <service-01@service.example>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="ff01"
+
+--ff01
+Content-Type: text/plain; charset=utf-8
+
+Het rapport van de bioveiligheidsaudit is beschikbaar in bijlage.
+--ff01
+Content-Type: application/pdf; name="Example Service_BE20000001-2001.pdf"
+Content-Disposition: attachment; filename="Example Service_BE20000001-2001.pdf"
+Content-Transfer-Encoding: base64
+
+VEVTVCBQREYgLSBGQVJNRklUIDE=
+--ff01--

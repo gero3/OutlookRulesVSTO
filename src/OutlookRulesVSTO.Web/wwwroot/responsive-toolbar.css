@@ -1,0 +1,72 @@
+/* Keep the main toolbar on one row and shorten actions before they can wrap. */
+.toolbar {
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.toolbar .search {
+  flex: 1 1 420px;
+  min-width: 0;
+}
+
+.toolbar .actions {
+  flex: 0 0 auto;
+  flex-wrap: nowrap;
+  width: auto;
+}
+
+.toolbar .actions > * {
+  white-space: nowrap;
+}
+
+@media (max-width: 1300px) {
+  .toolbar .actions button:not(.primary),
+  .toolbar .actions a.button {
+    flex: 0 0 42px !important;
+    width: 42px;
+    min-width: 42px;
+    padding-inline: 0;
+    overflow: hidden;
+    font-size: 0;
+    justify-content: center;
+  }
+
+  .toolbar .actions button:not(.primary) .icon,
+  .toolbar .actions a.button .icon {
+    width: 19px;
+    height: 19px;
+    margin: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .toolbar .actions .primary {
+    flex: 0 0 42px !important;
+    width: 42px;
+    min-width: 42px;
+    padding-inline: 0;
+    overflow: hidden;
+    font-size: 0;
+  }
+
+  .toolbar .actions .primary .icon {
+    width: 19px;
+    height: 19px;
+    margin: 0;
+  }
+}
+
+@media (max-width: 470px) {
+  .toolbar { gap: 7px; }
+  .toolbar .actions { gap: 5px; }
+  .toolbar .actions button,
+  .toolbar .actions a.button,
+  .toolbar .actions button:not(.primary),
+  .toolbar .actions .primary {
+    flex-basis: 38px !important;
+    width: 38px;
+    min-width: 38px;
+  }
+  .toolbar .search { padding-inline: 10px; }
+  .toolbar .search input::placeholder { color: transparent; }
+}
