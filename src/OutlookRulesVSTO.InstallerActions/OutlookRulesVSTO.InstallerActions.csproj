@@ -7,7 +7,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="WixToolset.Dtf.CustomAction" Version="6.0.2" />
-    <PackageReference Include="WixToolset.Dtf.WindowsInstaller" Version="6.0.2" />
+    <PackageReference Include="WixToolset.Dtf.WindowsInstaller" Version="7.0.0" />
     <Content Include="CustomAction.config" />
   </ItemGroup>
 </Project>
